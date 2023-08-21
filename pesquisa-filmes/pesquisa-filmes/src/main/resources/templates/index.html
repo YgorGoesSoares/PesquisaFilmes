@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Filmes</title>
+    <!-- Adicionando os links para os recursos do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Consulta de Filmes</h1>
+    <form action="/filmes" method="get" class="mt-4">
+        <div class="input-group">
+            <input type="text" id="tituloFilme" name="tituloFilme" class="form-control" placeholder="Título do Filme" required>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </form>
+
+    <div th:if="${filme}" class="mt-5">
+        <h2 th:text="${filme.original_title}" class="h4"></h2>
+        <p th:text="${filme.overview}" class="mt-3"></p>
+    </div>
+</div>
+</body>
+</html>
